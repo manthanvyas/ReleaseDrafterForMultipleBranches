@@ -1,5 +1,4 @@
 # ReleaseDrafterForMultipleBranches
 
 
-This is for test feature branch 8
-
+This is for test feature branch 8.
