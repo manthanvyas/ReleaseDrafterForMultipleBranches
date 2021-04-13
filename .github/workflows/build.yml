@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      Default_Branch: USBSRDTFSVNXT02
     steps:
     - name: Get the default branch
       shell: bash
@@ -14,5 +16,5 @@ jobs:
       
     - name: Print the default branch
       run: |
-        echo ${{GITHUB_REF#refs/heads/}}
-      shell: bash
+        write-host ${Github.ref} -replace "refs/heads/", ""
+      shell: pwsh
