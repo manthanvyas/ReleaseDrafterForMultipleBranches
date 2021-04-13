@@ -14,5 +14,5 @@ jobs:
       
     - name: Print the default branch
       run: |
-        write-host ${{ steps.extract_branch.outputs.branch }}
+        write-host ${{GITHUB_REF#refs/heads/}}
       shell: pwsh
