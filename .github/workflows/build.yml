@@ -6,16 +6,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      Default_Branch: USBSRDTFSVNXT02
+    
     steps:
     - name: Get the default branch
-      shell: bash
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      id: extract_branch
+      env:
+        Default_Branch: ${GITHUB_REF#refs/heads/}
+        shell: bash
       
     - name: Print the default branch
-      run: |
-        $branchname = ${{Github.ref}} -replace "refs/heads/", ""
-        write-host $branchname     
+      run: |        
+        write-host ${{ env.Default_Branch }}     
       shell: pwsh
