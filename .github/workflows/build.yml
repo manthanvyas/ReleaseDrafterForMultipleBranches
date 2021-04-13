@@ -9,6 +9,8 @@ jobs:
     
     steps:
     - name: Get the default branch
+      run: |
+        echo
       env:
         Default_Branch: ${GITHUB_REF#refs/heads/}
         shell: bash
