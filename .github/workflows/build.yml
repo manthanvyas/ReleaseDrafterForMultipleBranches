@@ -12,7 +12,7 @@ jobs:
       run: |
         echo
       env:
-        Default_Branch: ${GITHUB_REF#refs/heads/}
+        Default_Branch: ${{GITHUB_REF#refs/heads/}}
         shell: bash
       
     - name: Print the default branch
