@@ -16,5 +16,6 @@ jobs:
       
     - name: Print the default branch
       run: |
-        write-host ${{Github.ref}} -replace "refs/heads/", ""
+        $branchname = ${{Github.ref}} -replace "refs/heads/", ""
+        write-host $branchname     
       shell: pwsh
