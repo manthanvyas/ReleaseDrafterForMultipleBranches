@@ -10,10 +10,15 @@ jobs:
     steps:
     - name: Get the default branch
       run: |
-        echo
+        echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       env:
-        Default_Branch: ${{GITHUB_REF#refs/heads/}}
+        Default_Branch: ${GITHUB_REF#refs/heads/}
         shell: bash
+      
+    - name: SET CURRENT_BRANCH
+      run: |
+        $branchName = "${{github.ref}}".Split("/")["${{github.ref}}".Split("/").Length -1]
+        echo "::set-env name=CURRENT_BRANCH::$(echo $branchName)"
       
     - name: Print the default branch
       run: |        
