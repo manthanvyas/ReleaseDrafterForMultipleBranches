@@ -19,7 +19,8 @@ jobs:
       run: |
         $branchName = "${{github.ref}}".Split("/")["${{github.ref}}".Split("/").Length -1]
         echo "::set-env name=CURRENT_BRANCH::$(echo $branchName)"
-      
+      shell: pwsh
+        
     - name: Print the default branch
       run: |        
         write-host ${{ env.Default_Branch }}     
