@@ -2,7 +2,7 @@ name: Build Development Installer 8
 on: 
   repository_dispatch:
     types: build-development-installer-8
-
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
