@@ -6,13 +6,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
-    - name: Get the default branch
+    - name: Extract branch name
       shell: bash
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      id: extract_branch
-      
-    - name: Print the default branch
       run: |
-        write-host ${{ steps.extract_branch.outputs.branch }}
+        echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        echo ${GITHUB_REF#refs/heads/}
+      id: extract_branch
+       
+    - name: Print Release Drafter Config File Name 
+      run: |
+          write-host ${{ steps.extract_branch.outputs.branch }}
       shell: pwsh
