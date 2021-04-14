@@ -8,20 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Get the default branch
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
+       
+    - name: Print Release Drafter Config File Name 
       run: |
-        echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      env:
-        Default_Branch: ${GITHUB_REF#refs/heads/}
-        shell: bash
-      
-    - name: SET CURRENT_BRANCH
-      run: |
-        $branchName = "${{github.ref}}".Split("/")["${{github.ref}}".Split("/").Length -1]
-        echo "::set-env name=CURRENT_BRANCH::$(echo $branchName)"
-      shell: pwsh
-        
-    - name: Print the default branch
-      run: |        
-        write-host ${{ env.Default_Branch }}     
+          write-host ${{ steps.extract_branch.outputs.branch }}
       shell: pwsh
