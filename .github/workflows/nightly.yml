@@ -1,0 +1,22 @@
+name: nightly
+on: 
+  schedule:
+  - cron: 15 20 * * *
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        branch: [master,develop,develop8.1]
+        
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout the branch
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ matrix.branch }}
+    - run: echo checked out the ${{matrix.branch}} branch
+    
+
+  
