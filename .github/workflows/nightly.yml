@@ -12,20 +12,13 @@ jobs:
         
     runs-on: ubuntu-latest
     steps:
-    - name: checkout the branch
+    - name: checkout the branch (${{ matrix.branch }})
       uses: actions/checkout@v2
       with:
         ref: ${{ matrix.branch }}
     - run: echo checked out the ${{matrix.branch}} branch
     
-    - name: Upload TOMEs xUnit artifacts
-      uses: actions/upload-artifact@v2      
-      with:
-        name: TOMEsXUnitTestsResult (${{ matrix.branch }})
-        path: ./
-      
-    
-    
+  
     
 
   
