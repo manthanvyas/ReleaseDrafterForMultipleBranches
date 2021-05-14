@@ -17,5 +17,5 @@ jobs:
        
     - name: Print Release Drafter Config File Name 
       run: |
-          write-host ${{ steps.extract_branch.outputs.branch }}
+          write-host ${GITHUB_REF##*/}
       shell: pwsh
