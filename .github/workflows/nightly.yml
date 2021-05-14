@@ -18,12 +18,6 @@ jobs:
         ref: ${{ matrix.branch }}
     - run: echo checked out the ${{matrix.branch}} branch
     
-    - name: Upload TOMEs xUnit artifacts
-      uses: actions/upload-artifact@v2      
-      with:
-        name: TOMEsXUnitTestsResult (${{ matrix.branch }})
-        path: .\
-      
     
 
   
