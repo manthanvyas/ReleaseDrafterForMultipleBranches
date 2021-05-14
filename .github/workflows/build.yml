@@ -17,5 +17,5 @@ jobs:
        
     - name: Print Release Drafter Config File Name 
       run: |
-          write-host ${GITHUB_REF##*/}
+          write-host ${{GITHUB_REF}} -replace '.*\\'
       shell: pwsh
