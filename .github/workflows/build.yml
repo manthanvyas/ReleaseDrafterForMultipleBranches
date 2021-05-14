@@ -17,6 +17,6 @@ jobs:
        
     - name: Print Release Drafter Config File Name 
       run: |
-          $branchname = ${env:GITHUB_REF} -replace '.*\\'
+          $branchname = ${env:GITHUB_REF} -replace '.*/'
           write-host $branchname
       shell: pwsh
